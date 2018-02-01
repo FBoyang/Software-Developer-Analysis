@@ -11,30 +11,29 @@ driver = webdriver.Chrome() #Can be changed
 url ='https://www.google.com/search?client=ubuntu&hs=Y4q&channel=fs&ei=zeNtWvuuDIW2zwKK45-IDA&q=linkedin+software+developer+jobs&oq=linkedin+software+developer+jo&gs_l=psy-ab.1.0.0j0i22i30k1l3.7626.12395.0.14246.13.13.0.0.0.0.169.1500.5j8.13.0....0...1c.1.64.psy-ab..0.13.1493...0i67k1.0.pdDGaoWhWPI&ibp=htl;jobs&sa=X&ved=0ahUKEwiI57bR9PrYAhXE2lMKHVIsAxQQiYsCCFUoAQ#fpstate=tldetail&htidocid=cL_9ZSLGsMxLkEJbAAAAAA%3D%3D&htivrt=jobs'
 driver.get(url)
 time.sleep(5)
-
-#this is the function to scroll down the screen, you can try to adjust the sleeping time if too slow, time is the total scroll time 
-def execute_times(times):
-    for i in range(times + 1):
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        time.sleep(10)
-
-execute_times(500)
-html = driver.page_source
-soup = BeautifulSoup(html,'html.parser') #lxml
-
+infor = 0
 
 #create a new file in the current directory called job.txt
 f = open('job.txt', 'w')
 
+#this is the function to scroll down the screen, you can try to adjust the sleeping time if too slow, time is the total scroll time
+def execute_times(times):
+    for i in range(2, times + 1):
+        driver.find_element_by_link_text(str(i)).click()
+        #driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(5)
+        
+        #record the number of job discreption into infor (further we will need to record more metadata, so later we will apply numpy
+        #but first check wether the number is correct)
+        html = driver.page_source
+        soup = BeautifulSoup(html,'html.parser') #lxml
+        for text in soup.find_all('div',{"class":"jobDescriptionContent desc"}):
+            infor += 1
+            f.write(text.text)
 
-#record the number of job discreption into infor (further we will need to record more metadata, so later we will apply numpy
-#but first check wether the number is correct)
-infor = 0
-for text in soup.find_all('span',{"class":"_zMk"}):
-    infor += 1
-    f.write(text.text)
+execute_times(10)
 
-f.write("data size is: ", infor)
+f.write("data size is: " + str(infor))
 f.close()
 #req = Request(url2, headers={('User-Agent': "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36)}
 
