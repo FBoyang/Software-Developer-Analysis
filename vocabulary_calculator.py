@@ -17,5 +17,15 @@ while True:
                 #if the key word in the dictionary, increment it
                 job_dis_file[word] += 1
                 
+#######################################
+#Ruoting's part
+#Parse noise words into a LIST
+noiseWords = []
+noise_file = open("noisewords.txt", "r")
 
-            
+while True:
+    n_word = noise_file.readline()
+    if n_word == "":
+        break
+    if n_word not in noiseWords:
+        noiseWords.append(n_word)        
