@@ -7,3 +7,6 @@
 [0204/005206.269:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights.  (0xc0000022)
 [0204/005206.269:ERROR:exception_snapshot_win.cc(87)] thread ID 3780 not found in process
 [0204/005206.269:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0207/164556.392:ERROR:process_info.cc(632)] range at 0x4ac945f400000000, size 0x22d fully unreadable
+[0207/164556.396:ERROR:process_info.cc(632)] range at 0x4ac9461400000000, size 0x22d fully unreadable
+[0207/164556.396:ERROR:process_info.cc(632)] range at 0x0, size 0x22d fully unreadable

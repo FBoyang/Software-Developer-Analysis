@@ -6,6 +6,8 @@ First URL extraction:
 total data: 2700
 Date: 2/3/2018		11:20 pm
 
+Data from glassdoor
+
 Next step:
 1. record word frequency
 (database for noisy words, database for technical skills, key words for regular expression)
