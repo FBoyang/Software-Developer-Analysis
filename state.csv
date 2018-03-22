@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  VA,67
  CT,20
  MD,48
@@ -47,3 +48,37 @@ California,1
  AR,1
 Virginia,2
 Texas,1
+=======
+ VA,67
+ CT,20
+ MD,48
+ PA,43
+ CA,282
+ TX,94
+ CO,47
+ WA,58
+ NC,41
+ OH,19
+ GA,48
+ NH,13
+ FL,63
+ IA,6
+ AZ,15
+ ME,2
+ UT,26
+ IL,48
+ MN,26
+ DE,2
+ TN,15
+ MA,69
+ OK,6
+ SC,9
+ MI,33
+ IN,15
+ OR,16
+ WI,21
+ NY,54
+ NM,6
+ MO,14
+ NE,12
+>>>>>>> beed0fb3ff672c43d75ec47c7f47673e7b71b96a
